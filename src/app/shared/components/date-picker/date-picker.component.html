@@ -1,0 +1,7 @@
+<div class="input-group">
+    <input type="text" placeholder="dd/mm/yyyy" [ngClass]="{'is-invalid': checkValid}" class="form-control" [(ngModel)]="_currentDate"
+        (ngModelChange)="changeDate($event)" (blur)="onTouch($event)" bsDatepicker [isOpen]="isOpen" [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" [disabled]="disabled">
+    <div class="input-group-append">
+        <span class="input-group-text h-100" (click)="isOpen = !isOpen"><i class="fa fa-calendar"></i></span>
+    </div>
+</div>

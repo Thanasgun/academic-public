@@ -1,0 +1,41 @@
+<div class="row">
+    <form>
+        <div class="row p-3 align-items-center" *ngIf="!isAdvanceSearch">
+            <div class="col-sm-4 my-1">
+                <input type="text" class="form-control" id="searchKey">
+            </div>
+            
+            <div class="col-sm-1 text-center">
+                <a class="btn btn-outline-secondary">Search</a>
+            </div>
+            <div class="col-sm-2 text-center">
+                <a (click)="toggleAdvanceSearch()" class="btn btn-link">Search More</a>
+            </div>
+        </div>
+
+        <div class="row p-3" *ngIf="isAdvanceSearch">
+
+            <div class="col-sm-6 my-1">
+                <label for="name" class="col-sm-2 col-form-label">Name</label>
+                <input type="text" class="form-control" id="name">
+            </div>
+
+            <div class="col-sm-6 my-1">
+                <label for="name" class="col-sm-2 col-form-label">Position</label>
+                <input type="text" class="form-control" id="name">
+            </div>
+
+            <div class="col-sm-6 my-1">
+                <label for="name" class="col-sm-2 col-form-label">Faculty</label>
+                <input type="text" class="form-control" id="name">
+            </div>
+
+            <div class="col-sm-12 mt-2 text-center">
+                <a class="btn btn-outline-secondary">Search</a>
+            </div>
+            <div class="col-sm-12 text-center">
+                <a (click)="toggleAdvanceSearch()" class="btn btn-link">Search Less</a>
+            </div>
+        </div>
+    </form>
+</div>

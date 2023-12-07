@@ -1,0 +1,1 @@
+<input [(ngModel)]="searchText" [typeahead]="suggestions$" [typeaheadAsync]="true" (typeaheadOnSelect)="onSelect($event)" typeaheadOptionField="name" class="form-control">

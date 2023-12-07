@@ -1,0 +1,84 @@
+<div class="navbar navbar-light page-header">
+  <a class="navbar-brand ms-5" [routerLink]="['/login']"><img src="assets/images/logo2.png" height="40"></a>
+  <h4 class="me-5">MoU Request Application</h4>
+</div>
+<div>
+  <div class="container">
+    <div class="justify-content-center">
+      <div class="card shadow-lg border-0 rounded-lg">
+        <div class="card-header">
+          <div class="col-md-12 text-center">
+            <h4><b>Sign Up</b></h4>
+          </div>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="form" novalidate>
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                <div class="mx-1 mx-md-4">
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="username">Username</label><span style="color: red;"> *</span>
+                      <input type="text" class="form-control" [ngClass]="displayFieldCss('username')"
+                        formControlName="username" name="username" [(ngModel)]="model.username" />
+                      <app-field-error-display [controlError]="getTouchControl('username')"
+                        requiredMsg="Username is require!"></app-field-error-display>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="password">Password</label>
+                      <input type="password" class="form-control" [ngClass]="displayFieldCss('password')"
+                        formControlName="password" name="password" [(ngModel)]="model.password" />
+                      <app-field-error-display [controlError]="getTouchControl('password')"
+                        requiredMsg="Password is require!"></app-field-error-display>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="password">First Name</label>
+                      <input type="text" class="form-control" [ngClass]="displayFieldCss('firstName')"
+                        formControlName="firstName" name="firstName" [(ngModel)]="model.firstName" />
+                      <app-field-error-display [controlError]="getTouchControl('firstName')"
+                        requiredMsg="First Name is require!"></app-field-error-display>
+                    </div>
+                  </div>
+
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="password">Last Name</label>
+                      <input type="text" class="form-control" [ngClass]="displayFieldCss('lastName')"
+                        formControlName="lastName" name="lastName" [(ngModel)]="model.lastName" />
+                      <app-field-error-display [controlError]="getTouchControl('lastName')"
+                        requiredMsg="lastName is require!"></app-field-error-display>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="accessScope">Access Scope</label>
+                      <Select class="form-select" [ngClass]="displayFieldCss('accessScope')"
+                        formControlName="accessScope" [(ngModel)]="accScope" ngDefaultControl>
+                        <option *ngFor="let item of searchFaculty;" value="{{item.code}}">{{ item.code}} - {{item.nameTH}} - {{item.nameEN }}</option>
+                      </Select>
+                      <app-field-error-display [controlError]="getTouchControl('accessScope')"
+                        requiredMsg="Access Scope is require!">
+                      </app-field-error-display>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <a type="button" class="btn btn-primary" (click)="save()">Register</a>&nbsp;
+                    <a type="button" class="btn btn-primary" routerLink="/login">Back</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

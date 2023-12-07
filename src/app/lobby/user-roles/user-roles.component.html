@@ -1,0 +1,32 @@
+<div class="row mt-5" style="background-color: #F5F5F5;min-height: 1000px;margin-left: 0px;">
+    <div class="col-md-3 mt-5">
+  
+    </div>
+    <div class="col-md-6 mt-4">
+  
+      <div class="row pt-5 mt-2">
+  
+        <div class="card mr-2 mt-2" style="width: 18rem;" *ngFor="let r of roles">
+          <div class="card-body">
+            <div class="row">
+              <h5 class="card-title">เข้าสู่ระบบ โดยใช้สิทธิ์</h5> <span class="mt-2 pl-2"
+                style="font-size: 12px;"></span>
+            </div>
+            <p class="card-text">{{r}}</p>
+            <div class="d-flex justify-content-end">
+              <button type="button" (click)="selectRole(r)" class="btn btn-outline-success">เข้าสู่ระบบ</button>
+            </div>
+  
+  
+          </div>
+        </div>
+  
+  
+      </div>
+  
+    </div>
+    <div class="col-md-3">
+  
+    </div>
+  </div>
+  

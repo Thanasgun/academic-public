@@ -1,0 +1,64 @@
+<div class="d-flex align-items-center justify-content-between landing">
+    <div class="col-lg-4 col-md-6 col-sm-8 offset-lg-4 offset-md-3 offset-sm-2 shadow-lg border-0 rounded-lg">
+        <div class="card">
+            <div class="card-header text-center pt-4 pb-4">
+                <h2 class="sys-header"><strong>MU Academic Service</strong></h2>
+            </div>
+            <div class="card-body pr-3 pl-3 pt-5 pb-5">
+                <div class="col-md-12 text-center">
+                    <div class="col md-12 mt-2 text-center">
+                        <button type="button" class="btn btn-lg btn-primary btn-block p-4" (click)="loginMu()"> <img
+                                src="assets/images/logo.png" height="25" /> เข้าสู่ระบบ โดยบัญชีของมหาวิทยาลัย
+                            ฯ</button>
+                    </div>
+                    <!-- <br> -->
+                    <div class="col md-12 pt-1">
+
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="width: 45%;">
+                                    <hr>
+                                </td>
+                                <td style="width: 10%;">
+                                    หรือ
+                                </td>
+                                <td style="width: 45%;">
+                                    <hr>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="col md-12 p-2">
+                        <input type="text" class="form-control" id="model.username" placeholder="ชื่อเข้าใช้ระบบ"
+                            [(ngModel)]="model.username">
+                    </div>
+                    <div class="col md-12 p-2">
+                        <input type="password" class="form-control" id="model.password" placeholder="รหัสผ่าน"
+                            [(ngModel)]="model.password" (keyup.enter)="login()">
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col md-6 mt-2 text-center">
+                            <label><input type="checkbox" [(ngModel)]="model.isRemember"
+                                    [ngModelOptions]="{standalone: true}"> จดจำการเข้าสู่ระบบ</label>
+                        </div>
+                        <div class="col md-6 mt-2 text-center">
+                            <a routerLink="/forget-password" routerLinkActive="active">ลืมรหัสผ่านหรือบัญชีผู้ใช้</a>
+                        </div>
+                    </div>
+                    <div class="row col-md-12 ml-1">
+                        <div class="col md-6 mt-2 text-center">
+                            <!-- <a routerLink="/signup" routerLinkActive="active" style="color: white;"><button
+                                    type="button" class="btn btn-secondary btn-block">สมัครสมาชิก</button></a> -->
+                        </div>
+                        <div class="col md-6 mt-2 text-center">
+                            <button type="button" class="btn btn-primary btn-block"
+                                (click)="login()">เข้าสู่ระบบ</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

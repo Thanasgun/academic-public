@@ -1,0 +1,19 @@
+<app-feature-title [text]="'Recent Activities'" [redirectTo]="'../news'"></app-feature-title>
+
+<div class="activity-row row row-cols-1 row-cols-md-3 g-0 justify-content-center">
+    <ng-container *ngFor="let item of Items; let idx = index">
+        <div class="card border-0 shadow-sm m-2" style="width: 13rem;">
+            <img [src]="item.img" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{item.title}}</h5>
+              <p class="card-text">{{item.description}}</p>
+              <div class="text-end">
+                  <a href="#" class="btn btn-link"><small>Read more.</small></a>
+              </div>
+            </div>
+            <div class="card-footer text-end">
+                <span class="activity-date text-muted">{{ item.date | date:'medium' }}</span>
+            </div>
+        </div>
+    </ng-container>
+</div>

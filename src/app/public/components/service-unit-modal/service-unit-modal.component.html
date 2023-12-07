@@ -1,0 +1,26 @@
+<a class="btn btn-outline-primary m-1"  data-bs-toggle="modal" [attr.data-bs-target]="'#modal'+id">{{text}}</a>        
+
+<div class="modal fade text-start" id="modal{{id}}" data-bs-keyboard="false" tabindex="-1" aria-labelledby="ServiceUnitModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+            <img class="rounded" [src]="model?.img" style="max-height: 89px;max-width: 89px;"/>
+            <span class="mx-2">
+                <h1 class="modal-title fs-5" id="modal{{id}}-label">{{model?.name}}</h1>
+            </span>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">{{ model?.detail }}</div>
+                  </div>              
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+</div>
+  

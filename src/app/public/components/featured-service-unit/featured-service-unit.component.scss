@@ -1,0 +1,27 @@
+.card{
+
+    .card-text{
+        height: 100px;
+        overflow: hidden;
+    }
+
+    .picture{
+        max-width: 30%;
+        min-width: 150px;
+    }
+
+    .circle-picture{  
+        min-width: 89px;
+        height: 89px;
+    }
+
+    .detail{
+        width: 100%;
+    }
+
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}

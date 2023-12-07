@@ -1,0 +1,14 @@
+<div class="d-flex flex-row">
+    <div class="me-2">
+        <h4><a class="title" [routerLink]="redirectTo">{{text}}</a></h4>
+    </div>
+    <div class="mx-4 flex-grow-1">
+      <hr *ngIf="line" />
+    </div>
+    <div class="flex-shrink-1 text-end">
+      <a class="link" [routerLink]="redirectTo">
+        <span>More</span>
+        <sup><i class="fa fa-plus ms-1"></i></sup>
+    </a>
+    </div>
+</div>

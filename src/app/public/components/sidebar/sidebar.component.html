@@ -1,0 +1,40 @@
+<nav [ngClass]="{ sidebarPushRight: isActive, collapsed: collapsed }" class="sidebar shadow">
+    <div class="list-group">
+        <ng-template ngFor let-i [ngForOf]="menu">
+            <a *ngIf="!i.child" [routerLinkActive]="['router-link-active']" class="list-group-item"
+                routerLink="{{i.routerLink}}">
+                <i class="{{i.cssIcon}}"></i>&nbsp;
+                <span>{{ i.name | translate }}</span>
+            </a>
+            <div *ngIf="i.child" class="nested-menu">
+                <a (click)="addExpandClass(i.name);" class="list-group-item">
+                    <i class="{{i.cssIcon}}"></i>&nbsp;<span>{{ i.name | translate }}</span>&nbsp;&nbsp;<i class="fa"
+                        [ngClass]="{ 'fa-caret-right': showMenu != i.name, 'fa-caret-down': showMenu == i.name }"></i>
+                </a>
+                <li [class.expand]="showMenu === i.name" class="nested">
+                    <ul class="submenu">
+                        <li *ngFor="let child of i.child;">
+                            <a [routerLinkActive]="['router-link-active']" routerLink="{{child.routerLink}}">
+                                <i class="{{child.cssIcon}}"></i>&nbsp;
+                                <span>{{ child.name | translate }}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </div>
+        </ng-template>
+    </div>
+
+    <hr/>
+    
+    <div class="p-3">
+        <div class="collapsible">
+            something a-ming-a-boo
+        </div>
+    </div>
+
+    <div (click)="toggleCollapsed()" [ngClass]="{ collapsed: collapsed }" class="toggle-button">
+        <i class="fa fa-fw fa-angle-double-{{ collapsed ? 'right' : 'left' }}"></i>&nbsp;
+        <span>{{ 'Collapse Sidebar' | translate }}</span>
+    </div>
+</nav>

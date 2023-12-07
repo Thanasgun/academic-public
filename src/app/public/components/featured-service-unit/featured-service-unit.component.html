@@ -1,0 +1,56 @@
+<app-feature-title [text]="'Service Unit'" [redirectTo]="'../service-unit'"></app-feature-title>
+
+<ng-container *ngFor="let item of Items; let idx = index">
+
+    <div *ngIf="idx===0; then top; else other"></div>
+
+    <ng-template #top>
+        <div class="card border-0 shadow-sm m-3">
+            <div class="d-flex flex-row g-0">
+              <div class="picture">
+                <img [src]="item.img" class="img-fluid rounded-start" alt="...">
+              </div>
+        
+              <div class="detail">
+                <div class="card-body h-100 w-100 d-flex flex-column">
+                  <h5 class="card-title">{{item.name}}</h5>
+                  <p class="card-text">{{item.detail}}</p>
+                  <div class="mt-auto text-end">
+                    <app-service-unit-modal [id]="item.id" [text]="'View'"></app-service-unit-modal>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </ng-template>
+    
+    <ng-template #other>
+        <div class="card border-0 shadow-sm m-3">
+            <div class="d-flex flex-row g-0">
+              <div class="picture">
+                <img [src]="item.img" class="img-fluid rounded-start" alt="...">
+              </div>
+        
+              <div class="detail">
+                <div class="card-body h-100 w-100 d-flex flex-column">
+                  <h5 class="card-title">{{item.name}}</h5>
+                  <p class="card-text">{{item.detail}}</p>
+                  <div class="mt-auto text-end">
+                    <app-service-unit-modal [id]="item.id" [text]="'View'"></app-service-unit-modal>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </ng-template>
+
+</ng-container>
+
+<div class="text-center m-4">
+    <a routerLink="../service-unit" class="btn btn-outline-primary">
+      <span>
+        More
+      </span>
+      <i class="fa fa-plus ms-1"></i>
+    </a>
+  </div>

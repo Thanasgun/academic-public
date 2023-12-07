@@ -1,0 +1,14 @@
+<div *ngIf="controlError?.touched && controlError?.errors?.pattern">
+    <span class="glyphicon glyphicon-remove form-control-feedback fix-error-icon"></span>
+    <span class="sr-only">(error)</span>
+    <div class="error-msg">
+      {{ patternMsg }}
+    </div>
+  </div>
+  <div *ngIf="controlError?.touched && controlError?.errors?.required">
+    <span class="glyphicon glyphicon-remove form-control-feedback fix-error-icon"></span>
+    <span class="sr-only">(error)</span>
+    <div class="error-msg">
+      {{ requiredMsg }}
+    </div>
+  </div>

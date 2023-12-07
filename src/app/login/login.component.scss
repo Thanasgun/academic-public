@@ -1,0 +1,13 @@
+div.landing {
+    background: linear-gradient(to bottom, rgba(182, 182, 182, 0.4) 0%, rgba(182, 182, 182, 0.1) 100%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    height: 100vh;
+  }
+
+  .sys-header {
+    color: rgb(32, 47, 255);
+    text-shadow: -1px 0 rgb(83, 83, 83), 0 1px rgb(83, 83, 83), 1px 0 rgb(83, 83, 83), 0 -1px rgb(83, 83, 83);
+  }

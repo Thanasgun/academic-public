@@ -1,0 +1,126 @@
+<div class="container-fluid">
+    <div class="card-header">
+      <!-- wizard -->
+      <div class="col-md-12 text-center pt-2">
+        <h4 *ngIf="isEdit"><b>View User Profile Form</b></h4>
+      </div>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="form" novalidate>
+        <div class="row pt-2 pl-4 pr-4 align-items-center">
+          <div class="col-md-3 pt-2 text-right">
+            <h5>Username :</h5>
+          </div>
+          
+          <div *ngIf="isEdit; then usernameLabel; else usernameInput"></div>
+          <ng-template #usernameLabel>
+            <div class="col-md-6">
+              <span>{{ model.username }}</span>
+            </div>
+          </ng-template>
+          <ng-template #usernameInput>
+            <div class="col-md-6">
+              <input type="text" class="form-control" formControlName="username"/>
+            </div>
+          </ng-template>
+        </div>
+
+        <div class="row pt-2 pl-4 pr-4">
+          <div class="col-md-3 pt-2 text-right">
+            <h5>Password :</h5>
+          </div>
+          
+          <div *ngIf="isEdit; then changePassword; else passwordInput"></div>
+          <ng-template #changePassword>
+            <div class="col-md-6">
+              <app-change-password-form [username]="model.username"></app-change-password-form>
+            </div>
+          </ng-template>
+
+          <ng-template #passwordInput>
+            <div class="col-md-6">
+              <input type="password" class="form-control" formControlName="password"/>
+            </div>
+          </ng-template>
+        </div>
+
+        <div class="row pt-2 pl-4 pr-4 align-items-center">
+          <div class="col-md-3 pt-2 text-right">
+            <h5>First Name :</h5>
+          </div>
+          <div class="col-md-6">
+              <input type="text" class="form-control" formControlName="enFirstName"/>
+          </div>
+        </div>
+        <div class="row pt-2 pl-4 pr-4 align-items-center">
+          <div class="col-md-3 pt-2 text-right">
+            <h5>Last Name :</h5>
+          </div>
+          <div class="col-md-6">
+              <input type="text" class="form-control" formControlName="enLastName"/>
+          </div>
+        </div>
+        <div class="row pt-2 pl-4 pr-4 align-items-center">
+          <div class="col-md-3 pt-2 text-right">
+            <h5>E-Mail :</h5>
+          </div>
+          <div class="col-md-6">
+              <input type="text" class="form-control" formControlName="email"/>
+          </div>
+        </div>
+        <div class="row pt-2 pl-4 pr-4 align-items-center">
+          <div class="col-md-3 pt-2 text-right">
+            <h5>Account Type :</h5>
+          </div>
+
+          <div *ngIf="isEdit; then accountTypeLabel; else accountTypeSelector"></div>
+          <ng-template #accountTypeLabel>
+            <div class="col-md-6">
+              <span>{{ model.accountType }}</span>
+            </div>
+          </ng-template>
+          <ng-template #accountTypeSelector>
+            <div class="col-md-6">
+              <select class="form-select" formControlName="accountType">
+                <option value="local">Local</option>
+                <option value="mu">MU Account</option>
+              </select>
+            </div>
+          </ng-template>
+        </div>
+
+        <div *ngIf="isEdit" class="row pt-2 pl-4 pr-4 align-items-top">
+          <hr class="mt-2 mb-4"/>
+          <div class="col-md-3 pt-2 text-right">
+            <h5>Role :</h5>
+          </div>
+          <div class="col-md-6">
+            <ng-container  formArrayName="roles">
+              <ng-container *ngFor="let role of roleForm?.value; index as i">
+                <div class="card pt-3 m-1">
+                  <ul>
+                    <li>
+                      <b>Access Scope</b>: {{ role.accessScope }}
+                    </li>
+                    <li>
+                      <b>User Type</b>: {{ role.type }}
+                    </li>
+                    <li>
+                      <b>Group</b>: {{ role.group }}
+                    </li>
+                  </ul>
+                </div>
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>
+  
+      </form>
+    </div>
+    <div class="text-center">
+      <a class="btn btn-primary mx-1" [routerLink]="[id ? '../../' : '../']">Back</a>
+      <a class="btn btn-primary mx-1" (click)="save()">Save</a>
+
+    </div>
+  </div>
+  

@@ -1,0 +1,35 @@
+<div class="row">
+    <ng-container *ngFor="let item of Items; let idx = index">
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-sm m-3">
+                <div class="d-flex flex-row g-0">
+                  <div class="circle-picture p-3">
+                    <img [src]="item.img" class="img-fluid rounded-circle" [alt]="item.name">
+                  </div>
+            
+                  <div class="detail">
+                    <div class="card-body h-100 w-100 d-flex flex-column">
+                      <h5 class="card-title">{{item.name}}</h5>
+                      <p class="card-text">{{item.detail}}</p>
+                      <div class="mt-auto text-end">
+                        <a class="btn btn-link">
+                            <i style="color:rgb(247, 57, 57)" class="fa fa-heart-o"></i>
+                        </a>
+                        <app-specialist-modal [id]="item.id" [text]="'View'"></app-specialist-modal>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>
+
+<div class="text-center m-4">
+  <a (click)="fetchMore()" class="btn btn-outline-primary">
+    <span>
+      More
+    </span>
+    <i class="fa fa-plus ms-1"></i>
+  </a>
+</div>

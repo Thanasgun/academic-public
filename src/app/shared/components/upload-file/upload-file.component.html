@@ -1,0 +1,8 @@
+<span (click)="triggerFile($event)" class="btn btn-outline-primary btn-file" *ngIf="!name && !readonly">
+    Upload
+</span>
+<a *ngIf="name!=''" class="btn btn-link" (click)="download()">{{name}}</a>
+<span (click)="triggerFile($event)" class="btn btn-outline-primary btn-file" *ngIf="name && !readonly">
+    Edit
+</span>
+<input #inputFile type="file" (change)="handleFileInput($event.target)" style="display: none;">
